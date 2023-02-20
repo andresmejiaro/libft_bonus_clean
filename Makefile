@@ -6,7 +6,7 @@
 #    By: amejia <amejia@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/27 19:16:14 by amejia            #+#    #+#              #
-#    Updated: 2023/01/28 20:42:45 by amejia           ###   ########.fr        #
+#    Updated: 2023/02/20 19:20:14 by amejia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,29 +27,27 @@ OBJS = ${SRCS:.c=.o}
 
 BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
-
-FLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 INCLUDE = libft.h
 
 all: $(NAME)  
-	
-bonus: $(NAME)
-	gcc -c $(BONUS_SRCS) -Iinclude $(FLAGS)
-	ar -crs $(NAME) $(BONUS_OBJS)
 
+%.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+	ar -crs $(NAME) $@
+	
+bonus: $(NAME) $(BONUS_OBJS)
 
 $(NAME): ${OBJS}
-	gcc -c $(SRCS) -Iinclude $(FLAGS)
-	ar -crs $(NAME) $(OBJS) $(INCLUDE)
 
 clean: 
-	rm -f ${OBJS}
+	rm -f ${OBJS} $(BONUS_OBJS)
 
 fclean: clean
 	rm -f ${NAME}
 
 re: fclean all
 
-.PHONY: all clean fclean
+.PHONY: all clean fclean re
 
