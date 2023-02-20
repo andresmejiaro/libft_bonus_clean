@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:36:50 by amejia            #+#    #+#             */
-/*   Updated: 2023/01/28 21:01:06 by amejia           ###   ########.fr       */
+/*   Updated: 2023/02/20 19:37:13 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 char	*ft_strnstr(char *s1, char *s2, size_t n);
-void	*ft_calloc(unsigned long count, unsigned long size);
+void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(char *src);
 char	*ft_substr(char const *s, unsigned int start, unsigned int len);
 char	*ft_strtrim(char const *s1, char const *set);
